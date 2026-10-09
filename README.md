@@ -1,0 +1,36 @@
+# Blabber
+
+A real-time one-to-one chat app: sign in with Google, add friends by email,
+accept requests and chat live. Includes an optional ElevenLabs voice assistant.
+
+**Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 ·
+NextAuth (Google) · Upstash Redis · Pusher Channels · ElevenLabs
+
+## Getting started
+
+```bash
+npm install
+cp .env.example .env.local   # then fill in the values
+npm run dev
+```
+
+Open <http://localhost:3000>.
+
+| Script              | What it does           |
+| ------------------- | ---------------------- |
+| `npm run dev`       | Start the dev server   |
+| `npm run build`     | Production build       |
+| `npm run lint`      | ESLint                 |
+| `npm run typecheck` | TypeScript type check  |
+
+## How it works
+
+- **Auth** – NextAuth with Google and JWT sessions; users are stored in Redis
+  by the Upstash adapter. `src/proxy.ts` redirects unauthenticated visitors to `/login`.
+- **Data (Redis)** – `user:{id}`, `user:email:{email}`, `user:{id}:friends`,
+  `user:{id}:incoming_friend_requests` (sets) and `chat:{idA}--{idB}:messages`
+  (sorted set scored by timestamp).
+- **Real-time** – Pusher *private* channels. `/api/pusher/auth` only lets a user
+  subscribe to their own `user:*` channels and to chats they take part in.
+- **API** – `POST /api/friends/{add,accept,deny}`, `POST /api/message/send`,
+  `POST /api/pusher/auth`. All require a session and validate input with zod.

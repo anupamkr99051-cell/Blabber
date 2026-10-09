@@ -1,0 +1,55 @@
+{
+  "name": "blabber_frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@elevenlabs/react": "^1.17.0",
+    "@headlessui/react": "^2.2.10",
+    "@hookform/resolvers": "^5.9.1",
+    "@next-auth/upstash-redis-adapter": "^3.0.4",
+    "@upstash/redis": "^1.39.0",
+    "axios": "^1.20.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.4.0",
+    "geist": "^1.7.2",
+    "lucide-react": "^1.53.0",
+    "nanoid": "^6.0.2",
+    "next": "^16.4.0",
+    "next-auth": "^4.24.15",
+    "pusher": "^5.3.4",
+    "pusher-js": "^8.6.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-hook-form": "^7.89.0",
+    "react-hot-toast": "^2.6.1",
+    "react-loading-skeleton": "^3.5.0",
+    "react-textarea-autosize": "^8.5.9",
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.19.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.0",
+    "postcss": "^8.5.29",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}
